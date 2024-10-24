@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ベーシスト録音依頼</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+        h1 {
+            color: #8cadbc;
+            font-size: 24px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            color: #555;
+        }
+        input[type="text"], input[type="email"], textarea, input[type="file"], input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            background-color: #8cadbc;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        input[type="submit"]:hover {
+            background-color: #7ba1a9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ベーシスト録音依頼</h1>
+        <form action="/submit" method="POST" enctype="multipart/form-data">
+            <label for="name">お名前:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="contact">連絡手段（メールかTwitterアカウント）:</label>
+            <input type="text" id="contact" name="contact" required>
+
+            <label for="demo">デモ音源:</label>
+            <input type="file" id="demo" name="demo" accept="audio/*" required>
+
+            <label for="demo_no_bass">デモ音源（ベース抜き）:</label>
+            <input type="file" id="demo_no_bass" name="demo_no_bass" accept="audio/*" required>
+
+            <label for="chord_chart">コード譜（任意）:</label>
+            <input type="file" id="chord_chart" name="chord_chart" accept=".pdf,.png,.jpg">
+
+            <label for="bpm">BPM（任意）:</label>
+            <input type="number" id="bpm" name="bpm">
+
+            <label for="reference">要望やリファレンス（任意）:</label>
+            <textarea id="reference" name="reference" rows="4"></textarea>
+
+            <input type="submit" value="依頼を送信">
+        </form>
+    </div>
+</body>
+</html>
